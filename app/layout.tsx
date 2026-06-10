@@ -42,7 +42,10 @@ export default function RootLayout({
       lang="es"
       className={`${display.variable} ${body.variable} ${hanzi.variable} h-full antialiased`}
     >
-      <body className="grain min-h-full">{children}</body>
+      {/* suppressHydrationWarning: extensiones del navegador inyectan atributos en body */}
+      <body suppressHydrationWarning className="grain min-h-full">
+        {children}
+      </body>
     </html>
   );
 }

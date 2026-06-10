@@ -1,12 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useMotionValue, useSpring } from "motion/react";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 type Props = {
   href: string;
@@ -22,7 +18,7 @@ export function MagneticButton({
   className = "",
 }: Props) {
   const ref = useRef<HTMLAnchorElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);

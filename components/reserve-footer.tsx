@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 import { MapPinIcon, PhoneIcon, ClockIcon } from "@phosphor-icons/react";
 import { MagneticButton } from "./magnetic-button";
 import { info, reserveImage } from "@/lib/data";
 
 export function ReserveFooter() {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const fade = (delay = 0) => ({
     initial: reduce ? false : { opacity: 0, y: 32 },
     whileInView: { opacity: 1, y: 0 },

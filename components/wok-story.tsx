@@ -2,17 +2,13 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 import { storyImages } from "@/lib/data";
 
 export function WokStory() {
   const ref = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: ref,

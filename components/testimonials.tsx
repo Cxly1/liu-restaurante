@@ -5,9 +5,9 @@ import {
   motion,
   useMotionTemplate,
   useMotionValue,
-  useReducedMotion,
   useSpring,
 } from "motion/react";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 import { testimonials } from "@/lib/data";
 
 function TiltCard({
@@ -17,7 +17,7 @@ function TiltCard({
   className = "",
 }: (typeof testimonials)[number] & { className?: string }) {
   const ref = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
 
   const rx = useMotionValue(0);
   const ry = useMotionValue(0);
@@ -79,7 +79,7 @@ function TiltCard({
 }
 
 export function Testimonials() {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   return (
     <section className="mx-auto max-w-[1400px] px-5 py-28 md:px-10 md:py-40">
       <motion.h2

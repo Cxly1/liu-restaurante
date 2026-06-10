@@ -5,12 +5,12 @@ import {
   motion,
   useAnimationFrame,
   useMotionValue,
-  useReducedMotion,
   useScroll,
   useSpring,
   useTransform,
   useVelocity,
 } from "motion/react";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 const words = [
   "Pato laqueado",
@@ -44,7 +44,7 @@ function Strip() {
 }
 
 export function VelocityMarquee() {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const velocity = useVelocity(scrollY);
